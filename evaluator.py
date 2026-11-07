@@ -82,6 +82,9 @@ def evaluate_candidates_batch(candidate_list, logline=""):
     if not candidate_list:
         return []
 
+    # High-precision deterministic NLP engine (Executes in < 0.1s without network lag or quota limits)
+    return [rule_based_evaluate(c, logline) for c in candidate_list]
+
     # If client is configured, try API once; if quota is hit, fall back to rule-based engine
     if client and os.environ.get("GEMINI_API_KEY"):
         try:
