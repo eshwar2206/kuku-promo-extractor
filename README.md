@@ -86,32 +86,33 @@ Rather than naively feeding 50 full screenplays into expensive LLM context windo
 * **Deployment:** Streamlit Community Cloud & GitHub
 
 ---
-
 ## 🚀 Local Installation & Quickstart
 
 ### 1. Clone the Repository
-bash
+```bash
 git clone [https://github.com/eshwar2206/kuku-promo-extractor.git](https://github.com/eshwar2206/kuku-promo-extractor.git)
 cd kuku-promo-extractor
 2. Set Up Virtual Environment & Dependencies
+Windows
 Bash
-# Windows
 python -m venv venv
 .\venv\Scripts\activate
-
-# macOS / Linux
+macOS / Linux
+Bash
 python3 -m venv venv
 source venv/bin/activate
+Install requirements:
 
+Bash
 pip install -r requirements.txt
 3. Configure API Key (Optional)
 If using the live Gemini Flash endpoint:
 
-Bash
-# Windows PowerShell
+Windows PowerShell
+PowerShell
 $env:GEMINI_API_KEY="your_api_key_here"
-
-# macOS / Linux
+macOS / Linux
+Bash
 export GEMINI_API_KEY="your_api_key_here"
 4. Run the Streamlit Dashboard
 Bash
@@ -129,7 +130,7 @@ outputs/all_episodes_promos_ranked.csv
 
 outputs/all_episodes_promos_ranked.json
 
-## 📁 Repository Structure
+📁 Repository Structure
 Plaintext
 kuku-promo-extractor/
 ├── app.py                # Streamlit UI supporting single, multi-file & full-season audits
@@ -143,7 +144,6 @@ kuku-promo-extractor/
 ├── requirements.txt      # Python dependencies
 ├── .gitignore            # Files excluded from version control
 └── README.md             # Project documentation & operational guide
-🔍 Quality Checking & Where the Tool Fails
 Volume Over Quiet Tension: The heuristic pre-filter rewards exclamation marks (!) and shouting, occasionally prioritizing loud procedural exchanges (e.g., courtroom arguments in Episode 34) over understated psychological dread.
 
 AI Hallucination Overcome: Prompting LLMs with raw screenplay text initially resulted in rounded or hallucinated timestamps (e.g., cutting at 01:00.00 instead of 00:56.20). This was solved by keeping all temporal math and boundary indexing strictly in Python code, utilizing AI solely for semantic evaluation.
