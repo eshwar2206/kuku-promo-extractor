@@ -90,7 +90,7 @@ Rather than naively feeding 50 full screenplays into expensive LLM context windo
 ## 🚀 Local Installation & Quickstart
 
 ### 1. Clone the Repository
-```bash
+bash
 git clone [https://github.com/eshwar2206/kuku-promo-extractor.git](https://github.com/eshwar2206/kuku-promo-extractor.git)
 cd kuku-promo-extractor
 2. Set Up Virtual Environment & Dependencies
@@ -129,7 +129,7 @@ outputs/all_episodes_promos_ranked.csv
 
 outputs/all_episodes_promos_ranked.json
 
-📁 Repository Structure
+## 📁 Repository Structure
 Plaintext
 kuku-promo-extractor/
 ├── app.py                # Streamlit UI supporting single, multi-file & full-season audits
