@@ -28,33 +28,32 @@ This tool functions as an **editorial copilot**, parsing script timelines, apply
 
 Rather than naively feeding 50 full screenplays into expensive LLM context windows, the pipeline implements a **modular 3-stage filtering funnel**:
 
+```text
 [Raw Screenplay .txt]
-│
-▼
+         │
+         ▼
 [Stage 1: Deterministic Script Parsing & Sliding Window (Python)]
-• Parses structured script elements: CAMERA, ACTION, DIALOGUE, SOUND FX.
-• Normalizes timestamps down to exact float seconds.
-• Applies dynamic temporal sliding windows (25s–55s) across scene timelines.
-• Filters out inert transitions and enforces dialogue density (≥ 3 lines).
-│
-▼
+   • Parses structured script elements: CAMERA, ACTION, DIALOGUE, SOUND FX.
+   • Normalizes timestamps down to exact float seconds.
+   • Applies dynamic temporal sliding windows (25s–55s) across scene timelines.
+   • Filters out inert transitions and enforces dialogue density (≥ 3 lines).
+         │
+         ▼
 [Stage 2: Lexical Tension & Semantic Pruning (Heuristic Layer)]
-• Evaluates visceral hook cues (physical altercations, betrayal keywords, high-conflict punctuation).
-• Suppresses overlapping windows (temporal intersection clustering) to select the single sharpest cut point per scene.
-│
-▼
+   • Evaluates visceral hook cues (physical altercations, betrayal keywords, high-conflict punctuation).
+   • Suppresses overlapping windows (temporal intersection clustering) to select the single sharpest cut point per scene.
+         │
+         ▼
 [Stage 3: Multi-Criteria Scoring & Ranking Engine]
-• Evaluates top candidate segments across three weighted performance pillars:
-- Hook Score (0–10, 40% weight): Opening velocity and disruption.
-- Cliffhanger Score (0–10, 40% weight): Abrupt cut at maximum unresolved stakes.
-- Standalone Clarity (0–10, 20% weight): Instant legibility for cold social audiences.
-• Formula: Rank Score = (0.4 * Hook) + (0.4 * Cliffhanger) + (0.2 * Clarity)
-│
-▼
+   • Evaluates top candidate segments across three weighted performance pillars:
+       - Hook Score (0–10, 40% weight): Opening velocity and disruption.
+       - Cliffhanger Score (0–10, 40% weight): Abrupt cut at maximum unresolved stakes.
+       - Standalone Clarity (0–10, 20% weight): Instant legibility for cold social audiences.
+   • Formula: Rank Score = (0.4 * Hook) + (0.4 * Cliffhanger) + (0.2 * Clarity)
+         │
+         ▼
 [Ranked Output Deliverables (CSV, JSON, Interactive UI)]
-
-
----
+```
 
 ## 🏆 Top Recommended Promos to Post First
 
